@@ -6,19 +6,22 @@
 //  Copyright (c) 2013 Radosław Pietruszewski. All rights reserved.
 //
 
-#import "Geometry.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "Geometry.h"
 
-BOOL point_in_rect(l_point point, l_rect rect)
+char point_in_rect(l_point point, l_rect rect)
 {
     if(point.x >= rect.x &&
        point.x <  rect.x + rect.w &&
        point.y >= rect.y &&
        point.y <  rect.y + rect.h)
     {
-        return YES;
+        return 1;
     }
     
-    return NO;
+    return 0;
 }
 
 l_rect inset_recta(l_rect rect, short inset)

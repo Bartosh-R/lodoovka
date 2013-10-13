@@ -6,7 +6,13 @@
 //  Copyright (c) 2013 Radosław Pietruszewski. All rights reserved.
 //
 
-#import "Geometry.h"
+#ifndef lodoovkah
+#define lodoovkah
+#include "Geometry.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void lodoovka_main();
 void draw_desktop();
@@ -15,3 +21,10 @@ void lodoovka_redraw();
 l_rect plusbtnf();
 void draw_plusbtn();
 void plusbtn_clicked();
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

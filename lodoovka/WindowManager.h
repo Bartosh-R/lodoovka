@@ -6,8 +6,15 @@
 //  Copyright (c) 2013 Radosław Pietruszewski. All rights reserved.
 //
 
-#import "Window.h"
-#import "Event.h"
+#ifndef windowmanager
+#define windowmanager
+
+#include "Window.h"
+#include "Event.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 struct StackedWindow {
     window_ref wnd;
@@ -33,3 +40,10 @@ void _wndmgr_log_windows();
 
 void wndmgr_hangle_event(Event e);
 window_sref _wndmgr_find_clicked(Event e);
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

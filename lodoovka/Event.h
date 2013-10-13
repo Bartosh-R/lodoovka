@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Radosław Pietruszewski. All rights reserved.
 //
 
-#import "Geometry.h"
+#ifndef eventh
+#define eventh
+#include "Geometry.h"
 
 enum Event_Type
 {
@@ -21,3 +23,4 @@ typedef struct Event
     l_point loc;
 } Event;
 
+#endif

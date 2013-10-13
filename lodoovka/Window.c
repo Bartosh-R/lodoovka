@@ -6,19 +6,22 @@
 //  Copyright (c) 2013 Radosław Pietruszewski. All rights reserved.
 //
 
-#import "Window.h"
-#import "Drawing.h"
-#import "Lodoovka.h"
-#import "WindowManager.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "Window.h"
+#include "Drawing.h"
+#include "Lodoovka.h"
+#include "WindowManager.h"
 
 window_ref window_create(short x, short y, short w, short h, const char *title)
 {
-    window_ref wnd = malloc(sizeof(struct Window));
+    window_ref wnd = (window_ref) malloc(sizeof(struct Window));
     
     l_rect frame = {x, y, w, h};
     wnd->frame = frame;
     
-    wnd->title = malloc(strlen(title));
+    wnd->title = (char*) malloc(strlen(title));
     strcpy(wnd->title, title);
     
     wnd->eventmode = WEM_None;

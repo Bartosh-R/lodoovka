@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Radosław Pietruszewski. All rights reserved.
 //
 
-#import "Geometry.h"
-#import "Event.h"
+#ifndef windowh
+#define windowh
+#include "Geometry.h"
+#include "Event.h"
 
 enum Window_eventmode
 {
@@ -38,3 +40,5 @@ window_ref window_create(short x, short y, short w, short h, const char *title);
 void window_draw(window_ref wnd);
 
 void window_handle_event(window_ref wnd, Event e);
+
+#endif

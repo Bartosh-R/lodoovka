@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Radosław Pietruszewski. All rights reserved.
 //
 
+#ifndef geoh
+#define geoh
+
 typedef struct
 {
     short x, y;
@@ -16,7 +19,7 @@ typedef struct
     short x, y, w, h;
 } l_rect;
 
-BOOL point_in_rect(l_point point, l_rect rect);
+char point_in_rect(l_point point, l_rect rect);
 
 l_rect inset_recta(l_rect rect, short inset);
 l_rect inset_rectb(l_rect rect, short topbottom, short leftright);
@@ -31,3 +34,5 @@ l_rect t_edge(l_rect rect, short h);
 l_rect r_edge(l_rect rect, short w);
 l_rect b_edge(l_rect rect, short h);
 l_rect l_edge(l_rect rect, short w);
+
+#endif

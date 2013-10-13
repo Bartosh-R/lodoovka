@@ -6,9 +6,14 @@
 //  Copyright (c) 2013 Radosław Pietruszewski. All rights reserved.
 //
 
-#import "WindowManager.h"
-#import "Lodoovka.h"
-#import "Geometry.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "WindowManager.h"
+#include "Lodoovka.h"
+#include "Geometry.h"
+#include "Drawing.h"
+
 
 void wndmgr_init()
 {
@@ -17,7 +22,7 @@ void wndmgr_init()
 
 window_ref wndmgr_add(window_ref wnd)
 {
-    window_sref swnd = malloc(sizeof(struct StackedWindow));
+    window_sref swnd = (window_sref) malloc(sizeof(struct StackedWindow));
     swnd->wnd = wnd;
     swnd->next = NULL;
     
@@ -150,13 +155,13 @@ void _wndmgr_log_windows()
         if(sref->wnd->title)
         {
             char *log2;
-            asprintf(&log2, "%s%s, ", log, sref->wnd->title);
+            //asprintf(&log2, "%s%s, ", log, sref->wnd->title);
             log = log2;
         }
     }
     while((sref = sref->next));
     
-    NSLog(@"%s", log);
+    //NSLog(@"%s", log);
 }
 
 window_ref _wndmgr_keywnd = NULL;
@@ -212,3 +217,4 @@ window_sref _wndmgr_find_clicked(Event e)
     
     return clicked_wnd;
 }
+

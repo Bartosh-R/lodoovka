@@ -6,10 +6,13 @@
 //  Copyright (c) 2013 Radosław Pietruszewski. All rights reserved.
 //
 
-#import "Lodoovka.h"
-#import "Drawing.h"
-#import "Window.h"
-#import "WindowManager.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "Lodoovka.h"
+#include "Drawing.h"
+#include "Window.h"
+#include "WindowManager.h"
 
 void lodoovka_main()
 {
@@ -33,6 +36,8 @@ void lodoovka_redraw()
     }
     
     draw_plusbtn();
+
+    drawScreen();
 }
 
 void draw_desktop()
@@ -63,13 +68,13 @@ short window_counter = 0;
 
 void plusbtn_clicked()
 {
-    short x = arc4random() % (800 - 50);
-    short y = arc4random() % (600 - 50);
-    short w = arc4random() % (800 - 50) + 50;
-    short h = arc4random() % (600 - 50) + 50;
+    short x = rand() % (800 - 50);
+    short y = rand() % (600 - 50);
+    short w = rand() % (800 - 50) + 50;
+    short h = rand() % (600 - 50) + 50;
     
     char *title;
-    asprintf(&title, "%i", window_counter++);
+    //asprintf(&title, "%i", window_counter++);
     
     wndmgr_add(window_create(x, y, w, h, title));
 }
